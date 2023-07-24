@@ -15,18 +15,20 @@ namespace myengine
 		position.y = 0;
 		
 		direction_ = (M_PI * 2.0 * rand()) / RAND_MAX;
+
+        base_speed = 0.04 * rand() / RAND_MAX;
+        base_speed *= base_speed;
 	}
 
 	
 	void Particle::update(int interval)
 	{
-        speed_ = speed_multiplier * rand() / RAND_MAX;
-        speed_ *= speed_;
+        current_speed = base_speed * speed_multiplier;
 
-		direction_ += interval * 0.0003;
+		direction_ += interval * /*0.0003*/ curve_multiplier / 1000.f;
 		
-		Vec speed_vector{ speed_ * cos(direction_) * interval,
-			speed_ * sin(direction_) * interval};
+		Vec speed_vector{ current_speed * cos(direction_) * interval,
+                          current_speed * sin(direction_) * interval};
 
 		position += speed_vector;
 

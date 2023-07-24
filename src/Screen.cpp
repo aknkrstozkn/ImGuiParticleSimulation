@@ -72,10 +72,14 @@ namespace myengine
         ImGui_ImplSDLRenderer2_NewFrame();
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
+        //ImGui::PushStyleVar(ImGuiStyleVar_WindowMinSize, {200.f,100.f });
 
+        ImGui::SetNextWindowSize(ImVec2(600, 100), ImGuiCond_Always);
         // ImGui::ShowDemoWindow();
         if (ImGui::Begin("Particle System Parameters")) {
             ImGui::SliderFloat("Particle speed multiplier", &Particle::speed_multiplier, 0.f, 1.f);
+            ImGui::SliderFloat("Curve multiplier", &Particle::curve_multiplier, -10.f, 10.f);
+            ImGui::SliderFloat("Color transition speed", &Particle::color_transition_speed, 0.f, 1.f);
         }
         ImGui::End();
 

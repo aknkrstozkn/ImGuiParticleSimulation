@@ -10,11 +10,8 @@
 #include "Particle.h"
 #include "Vec.h"
 
-int test_screen();
-
 int main(int argc, char* args[])
 {
-	
 	std::ostream::sync_with_stdio(false);
 	srand(time(0));
 
@@ -37,9 +34,9 @@ int main(int argc, char* args[])
 		int elapsed = SDL_GetTicks();
 		//screen.clear();
 
-		auto red = static_cast<unsigned char>((1 + std::sin(elapsed * 0.0005)) * 128);
-		auto green = static_cast<unsigned char>((1 + std::sin(elapsed * 0.0003)) * 128);
-		auto blue = static_cast<unsigned char>((1 + std::sin(elapsed * 0.0007)) * 128);
+		auto red = static_cast<unsigned char>((1 + std::sin(elapsed * 0.0005 * myengine::Particle::color_transition_speed * 2.f)) * 128);
+		auto green = static_cast<unsigned char>((1 + std::sin(elapsed * 0.0003 * myengine::Particle::color_transition_speed * 2.f)) * 128);
+		auto blue = static_cast<unsigned char>((1 + std::sin(elapsed * 0.0007 * myengine::Particle::color_transition_speed * 2.f)) * 128);
 
 		const myengine::Particle * const p_particles = swarm.get_particles();
 		for(int i = 0; i < myengine::Swarm::N_PARTICLES; i++)
@@ -53,24 +50,10 @@ int main(int argc, char* args[])
 		}
 
 		screen.box_blur();
-
 		swarm.update(elapsed);
-		
 		screen.update();
 	}
 
 	screen.close();
-
 	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
