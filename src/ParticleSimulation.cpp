@@ -29,15 +29,13 @@ int main(int argc, char* args[])
 
 	while (true)
 	{
-
         if (screen.process_events())
+        {
             break;
-
+        }
 
 		int elapsed = SDL_GetTicks();
-
 		//screen.clear();
-		
 
 		auto red = static_cast<unsigned char>((1 + std::sin(elapsed * 0.0005)) * 128);
 		auto green = static_cast<unsigned char>((1 + std::sin(elapsed * 0.0003)) * 128);
@@ -62,13 +60,9 @@ int main(int argc, char* args[])
 	}
 
 	screen.close();
-	
-	
-	
+
 	return 0;
 }
-
-
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
