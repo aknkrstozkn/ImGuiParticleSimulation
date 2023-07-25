@@ -1,9 +1,9 @@
-# ImGui SDL Partical Simulation
+# ImGui SDL Particle Simulation
 
-A basic pixel vise particle simulation to practice iMGui. <br />
+A basic, pixel-wise particle simulation designed for practicing with ImGui. <br />
 Features some cool visuals :)
 
-## How it looks
+## How it Looks
 ![](ParticalSimulation.gif)
 
 ## Screenshots
@@ -18,7 +18,7 @@ Features some cool visuals :)
 - CMake
 - SDL2
 
-`CMake` installation.<br />
+#### `CMake` Installation.
 This is an example script for Ubuntu
 ```shell script
 $ sudo apt install cmake
@@ -28,7 +28,7 @@ $ cmake --config Release --target ParticleSimulation ..
 $ cmake --build -- -j $(nproc)
 ```
 
-`vcpkg` installation.<br /> 
+#### `vcpkg` Installation.
 ```shell script
 $ git clone https://github.com/Microsoft/vcpkg.git
 $ ./vcpkg/bootstrap-vcpkg.sh -disableMetrics
