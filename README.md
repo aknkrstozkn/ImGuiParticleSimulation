@@ -1,6 +1,6 @@
 # ImGui SDL Particle Simulation
 
-A basic, pixel-wise particle simulation designed for practicing with ImGui. <br />
+A basic, pixel-wise particle simulation designed to practice with ImGui. <br />
 
 ## How it Looks
 ![](ParticalSimulation.gif)
